@@ -40,7 +40,7 @@ async def AhShitHereWeGoAgain(update: Update, context: ContextTypes.DEFAULT_TYPE
 
 
 if __name__ == "__main__":
-    app = ApplicationBuilder().token(.).build()
+    app = ApplicationBuilder().token(open('token', 'r').read()).build()
     print("cmd")
     app.add_handler(CommandHandler("hello", hello))
     # app.add_handler(CommandHandler("uxn", uxn))
