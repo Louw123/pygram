@@ -11,6 +11,7 @@ def traverse(node, indent=0):
     for child_node in ast.iter_child_nodes(node):
         traverse(child_node, indent + 2)
         print(" " * indent + ")")
+
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f'Hello there')
 
@@ -28,8 +29,6 @@ async def PythonEval(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     if len(context.args) == 0:
          raise EOFError("No input found. Please specify python code")
     else:
-        print(context.args)
-        print(' '.join(context.args))
         await update.message.reply_text(exec(' '.join(context.args)))
 
 
@@ -41,7 +40,6 @@ async def AhShitHereWeGoAgain(update: Update, context: ContextTypes.DEFAULT_TYPE
 
 if __name__ == "__main__":
     app = ApplicationBuilder().token(open('token', 'r').read()).build()
-    print("cmd")
     app.add_handler(CommandHandler("hello", hello))
     # app.add_handler(CommandHandler("uxn", uxn))
     app.add_handler(CommandHandler("showTree", Pythontree))
