@@ -29,7 +29,7 @@ async def PythonEval(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     if len(context.args) == 0:
          raise EOFError("No input found. Please specify python code")
     else:
-        await update.message.reply_text(exec(' '.join(context.args)))
+        await update.message.reply_text(eval(' '.join(context.args)))
 
 
 
